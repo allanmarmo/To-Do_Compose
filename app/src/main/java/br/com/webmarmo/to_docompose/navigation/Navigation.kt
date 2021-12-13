@@ -1,15 +1,18 @@
 package br.com.webmarmo.to_docompose.navigation
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import br.com.webmarmo.to_docompose.navigation.destinations.listComposable
+import br.com.webmarmo.to_docompose.navigation.destinations.splashComposable
 import br.com.webmarmo.to_docompose.navigation.destinations.taskComposable
 import br.com.webmarmo.to_docompose.ui.viewmodels.SharedViewModel
-import br.com.webmarmo.to_docompose.util.Constants.LIST_SCREEN
+import br.com.webmarmo.to_docompose.util.Constants.SPLASH_SCREEN
 
+@ExperimentalAnimationApi
 @ExperimentalMaterialApi
 @Composable
 fun SetupNavigation(
@@ -22,14 +25,17 @@ fun SetupNavigation(
 
     NavHost(
         navController = navController,
-        startDestination = LIST_SCREEN
+        startDestination = SPLASH_SCREEN
     ) {
+        splashComposable(
+            navigateToListScreen = screen.splash
+        )
         listComposable(
-            navigateToTaskScreen = screen.task,
+            navigateToTaskScreen = screen.list,
             sharedViewModel = sharedViewModel
         )
         taskComposable(
-            navigateToListScreen = screen.list,
+            navigateToListScreen = screen.task,
             sharedViewModel = sharedViewModel
         )
     }
