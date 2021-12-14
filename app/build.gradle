@@ -40,7 +40,6 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion compose_version
-        kotlinCompilerVersion '1.5.10'
     }
     packagingOptions {
         resources {
@@ -66,7 +65,10 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
 
     // Compose Navigation
-    implementation("androidx.navigation:navigation-compose:$navigation_compose_version")
+    // implementation("androidx.navigation:navigation-compose:$navigation_compose_version")
+
+    // Accompanist Navigation Animation
+    implementation "com.google.accompanist:accompanist-navigation-animation:$accompanist_navigation_animation"
 
     // Room components
     implementation("androidx.room:room-runtime:$room_version")

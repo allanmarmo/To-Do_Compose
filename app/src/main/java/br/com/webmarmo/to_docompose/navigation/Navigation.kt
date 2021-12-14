@@ -5,12 +5,12 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
 import br.com.webmarmo.to_docompose.navigation.destinations.listComposable
 import br.com.webmarmo.to_docompose.navigation.destinations.splashComposable
 import br.com.webmarmo.to_docompose.navigation.destinations.taskComposable
 import br.com.webmarmo.to_docompose.ui.viewmodels.SharedViewModel
 import br.com.webmarmo.to_docompose.util.Constants.SPLASH_SCREEN
+import com.google.accompanist.navigation.animation.AnimatedNavHost
 
 @ExperimentalAnimationApi
 @ExperimentalMaterialApi
@@ -23,7 +23,7 @@ fun SetupNavigation(
         Screens(navController = navController)
     }
 
-    NavHost(
+    AnimatedNavHost(
         navController = navController,
         startDestination = SPLASH_SCREEN
     ) {
